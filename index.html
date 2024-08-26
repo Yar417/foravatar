@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Window</title>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+    <div class="video-container minimized" id="connect-button">
+        <video class="video" autoplay loop muted>
+            <source src="/assets/video/video_min.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="custom-window" id="expandedWindow" style="display: none;">
+        <video id="idle-video-element" autoplay loop></video>
+        <video id="stream-video-element" autoplay style="opacity: 0;"></video>
+        <div class="chat-container">
+            <div id="msgHistory" class="chat-container__history">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="chat-container__input">
+                <textarea id="textArea" class="chat-container__textarea" placeholder="Напишите сообщение"></textarea>
+                <button id="send-button" class="button chat-container__send-button" aria-label="Send Message"
+                    type="button" style="display: none;">
+                    <div class="chat-container__send-icon"></div>
+                </button>
+                <button id="microphone-button" class="chat-container__microphone-button button"
+                    aria-label="Start Microphone" type="button">
+                    <div class="chat-container__microphone-icon"></div>
+                </button>
+            </div>
+        </div>
+        <button class="button custom-window__close-button" id="destroy-button" aria-label="Close Window">
+            <div class="custom-window__close-icon"></div>
+        </button>
+    </div>
+
+    <div id="buttons">
+        <button id="start-button" class="button" type="button">Start</button>
+    </div>
+
+    <div id="status">
+        ICE gathering status: <label id="ice-gathering-status-label"></label><br />
+        ICE status: <label id="ice-status-label"></label><br />
+        Peer connection status: <label id="peer-status-label"></label><br />
+        Signaling status: <label id="signaling-status-label"></label><br />
+        Last stream event: <label id="stream-event-label"></label><br />
+        Streaming status: <label id="streaming-status-label"></label><br />
+    </div>
+
+    <script src="index.js" type="module"></script>
+    <script src="scripts/script.js" type="module"></script>
+</body>
+
+</html>
